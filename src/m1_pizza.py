@@ -28,7 +28,7 @@ def main():
     # ------------------------------------------------------------------
 
     run_test_generate_points_on_circle()
-    # run_test_draw_points_on_circle()
+    run_test_draw_points_on_circle()
     # run_test_pizza()
     # run_test_polygon()
     # run_test_fancy_polygon()
@@ -231,7 +231,7 @@ def draw_points_on_circle(window, circle, number_of_points, color):
       :type color:            str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -241,11 +241,14 @@ def draw_points_on_circle(window, circle, number_of_points, color):
     # Your professor may do this exercise with you as "live coding".
     # ------------------------------------------------------------------
 
+    circle.attach_to(window)
+
     for _ in range(number_of_points):
         points = generate_points_on_circle(circle, number_of_points)
-        circle = rg.Circle(points, 10)
-        circle.fill_color = color
-        circle.attach_to(window)
+        circle1 = rg.Circle(points[_], 10)
+        circle1.fill_color = color
+        circle1.attach_to(window)
+        points[_].attach_to(window)
         window.render()
 
 
